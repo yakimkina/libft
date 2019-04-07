@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 18:17:46 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/07 15:19:00 by enikole          ###   ########.fr       */
+/*   Created: 2019/04/07 15:31:20 by enikole           #+#    #+#             */
+/*   Updated: 2019/04/07 15:50:38 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-void					*ft_memset(void *b, int c, size_t len)
+char					*ft_strsub(char const *s, unsigned int start,
+		size_t len)
 {
-	unsigned	char	*dest;
+	unsigned	int		i;
+	char				*str;
 
-	dest = (unsigned char*)b;
-	while (len--)
+	i = 0;
+	if ((str = (char*)malloc(sizeof(*str) * len)) != NULL)
 	{
-		*dest = (unsigned char)c;
-		dest++;
+		while (i < (unsigned int)len)
+		{
+			str[i] = s[start + i];
+			i++;
+		}
 	}
-	return ((void*)b);
+	return (str);
 }

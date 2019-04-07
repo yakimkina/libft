@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 18:17:46 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/07 15:19:00 by enikole          ###   ########.fr       */
+/*   Created: 2019/04/07 13:31:50 by enikole           #+#    #+#             */
+/*   Updated: 2019/04/07 13:39:13 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void					*ft_memset(void *b, int c, size_t len)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	unsigned	char	*dest;
-
-	dest = (unsigned char*)b;
-	while (len--)
-	{
-		*dest = (unsigned char)c;
-		dest++;
-	}
-	return ((void*)b);
+	if (ft_strncmp(s1, s2, n))
+		return (0);
+	return (1);
 }
