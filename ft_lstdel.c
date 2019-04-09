@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 19:57:56 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/08 14:50:30 by enikole          ###   ########.fr       */
+/*   Created: 2019/04/08 17:04:17 by enikole           #+#    #+#             */
+/*   Updated: 2019/04/09 10:46:49 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int					ft_atoi(const char *str)
-{
-	int				i;
-	long	int		nb;
+#include <stdlib.h>
+#include "libft.h"
 
-	i = 1;
-	nb = 0;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+{
+	t_list	*tmp;
+
+	while (*alst != NULL)
 	{
-		if (*str == '-')
-			i = -1;
-		str++;
+		del((*alst)->content, (*alst)->content_size);
+		tmp = *alst;
+		*alst = (*alst)->next;
+		free(tmp);
 	}
-	while (*str >= 48 && *str <= 57)
-	{
-		if (i > 0 && nb != nb * 10 / 10)
-			return (-1);
-		else if (i < 0 && nb != nb * 10 / 10)
-			return (0);
-		nb = nb * 10 + (*str - 48);
-		str++;
-	}
-	return ((int)(i * nb));
+	ft_memdel((void**)alst);
 }

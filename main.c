@@ -35,7 +35,7 @@ int main()
 //	printf("mine: %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c, %c\n",
 //			a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10], a[11], a[12], a[13], a[14], a[15], a[16], a[17], a[18], a[19], a[20], a[21], a[22], a[23], a[24], a[25], a[26], a[27], a[28], a[29], a[30]);
 //	printf("mi all %s\n", a);
-	char s1[] = "lorem ipsum"; //dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi    sse";
+/*	char s1[] = "lorem ipsum"; //dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendi    sse";
 	char	**a;
 	int	i=0;
 	a = ft_strsplit(s1, ' ');
@@ -44,5 +44,7 @@ int main()
 		printf("%s\n", a[i]);
 		i++;
 	}
+*/
+  printf("%d\n %d\n", ft_atoi("22222222222222222222"), atoi("22222222222222222222"));
 	return 0;
 }

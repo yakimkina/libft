@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/07 14:52:56 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/08 13:37:52 by enikole          ###   ########.fr       */
+/*   Created: 2019/04/09 11:04:06 by enikole           #+#    #+#             */
+/*   Updated: 2019/04/09 11:49:00 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char		*ft_strnew(size_t size)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	*str;
+	t_list	*new;
+	t_list	*tmp;
+	t_list	*begin;
 
-	if ((size_t)(-1))
-		return (0);
-	if ((str = (char*)malloc(sizeof(*str) * (size + 1))) != NULL)
+	if (lst != NULL)
 	{
-		str[size] = '\0';
-		ft_bzero(str, size);
+		begin = (t_list*)malloc(sizeof(*new));
+		if (!begin)
+			return (NULL);
+		begin = f(lst);
+		lst = lst->next;
+		tmp = begin;
 	}
-	return (str);
+	while (lst != NULL)
+	{
+		if ((new = (t_list*)malloc(sizeof(*new))) != NULL)
+		{
+			new = f(lst);
+			lst = lst->next;
+			tmp->next = new;
+			tmp = new;
+		}
+	}
+	return (begin);
 }

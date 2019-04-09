@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 19:57:56 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/08 14:50:30 by enikole          ###   ########.fr       */
+/*   Created: 2019/04/08 12:29:51 by enikole           #+#    #+#             */
+/*   Updated: 2019/04/08 15:18:09 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int					ft_atoi(const char *str)
-{
-	int				i;
-	long	int		nb;
+#include <stdlib.h>
+#include "libft.h"
 
-	i = 1;
-	nb = 0;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
+t_list		*ft_lstnew(void const *content, size_t content_size)
+{
+	t_list	*tmp;
+
+	if ((tmp = (t_list*)malloc(sizeof(t_list))) != NULL)
 	{
-		if (*str == '-')
-			i = -1;
-		str++;
+		if (!content)
+		{
+			tmp->content = NULL;
+			tmp->content_size = 0;
+		}
+		else
+		{
+			tmp->content = (void*)content;
+			tmp->content_size = content_size;
+		}
+		tmp->next = NULL;
 	}
-	while (*str >= 48 && *str <= 57)
-	{
-		if (i > 0 && nb != nb * 10 / 10)
-			return (-1);
-		else if (i < 0 && nb != nb * 10 / 10)
-			return (0);
-		nb = nb * 10 + (*str - 48);
-		str++;
-	}
-	return ((int)(i * nb));
+	return (tmp);
 }
