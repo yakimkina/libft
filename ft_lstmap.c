@@ -6,31 +6,42 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 11:04:06 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 15:15:55 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 18:13:58 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+static	t_list	*ft_del(t_list *b)
 {
-	t_list	*new;
-	t_list	*tmp;
-	t_list	*begin;
+	t_list		*tmp;
+
+	while (b != NULL)
+	{
+		tmp = b;
+		b = b->next;
+		free(tmp);
+	}
+	return (NULL);
+}
+
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list		*new;
+	t_list		*tmp;
+	t_list		*begin;
 
 	begin = NULL;
 	if (lst != NULL)
 	{
-		begin = (t_list*)malloc(sizeof(t_list));
-		if (!begin)
+		if (!(begin = (t_list*)malloc(sizeof(t_list))))
 			return (NULL);
 		begin = f(lst);
 		lst = lst->next;
 		tmp = begin;
 	}
 	while (lst != NULL)
-	{
 		if ((new = (t_list*)malloc(sizeof(t_list))) != NULL)
 		{
 			new = f(lst);
@@ -38,6 +49,7 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 			tmp->next = new;
 			tmp = new;
 		}
-	}
+		else
+			return (ft_del(begin));
 	return (begin);
 }
