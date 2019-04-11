@@ -6,7 +6,7 @@
 #    By: enikole <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/11 19:20:12 by enikole           #+#    #+#              #
-#    Updated: 2019/04/11 19:20:39 by enikole          ###   ########.fr        #
+#    Updated: 2019/04/11 19:24:10 by enikole          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,4 +30,4 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 
-re: fclean al
+re: fclean all
