@@ -6,11 +6,11 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 13:43:38 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/05 16:53:38 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 14:52:54 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	char	*str;
 

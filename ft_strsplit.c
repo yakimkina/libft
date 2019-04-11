@@ -6,18 +6,18 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:04:27 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/08 14:42:25 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:29:59 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static	unsigned	int		ft_kol(char const *s, char c)
+static	size_t		ft_kol(char const *s, char c)
 {
-	unsigned	int			i;
-	unsigned	int			j;
-	unsigned	int			count;
+	size_t			i;
+	size_t			j;
+	size_t			count;
 
 	i = 0;
 	j = ft_strlen(s) - 1;
@@ -39,7 +39,7 @@ static	unsigned	int		ft_kol(char const *s, char c)
 	return ((++count));
 }
 
-static	unsigned	int		ft_cpy(char *dst, const char *src, unsigned int n,
+static	size_t		ft_cpy(char *dst, const char *src, unsigned int n,
 		unsigned int k)
 {
 	dst[n] = '\0';
@@ -48,14 +48,36 @@ static	unsigned	int		ft_cpy(char *dst, const char *src, unsigned int n,
 	return (k);
 }
 
-char						**ft_strsplit(char const *s, char c)
+static	size_t		ft_check(size_t k, char **arr)
 {
-	unsigned	int			i;
-	unsigned	int			j;
-	unsigned	int			k;
-	char					**arr;
+	if (arr[k] == NULL)
+	{
+		while (k--)
+			free(arr[k]);
+		free(arr);
+		return (1);
+	}
+	return (0);
+}
+
+static	size_t		ft_go(size_t i, size_t j, char const *s, char c)
+{
+	while (s[i + j] == c)
+		j++;
+	j += i;
+	return (j);
+}
+
+char				**ft_strsplit(char const *s, char c)
+{
+	size_t			i;
+	size_t			j;
+	size_t			k;
+	char			**arr;
 
 	k = 0;
+	if (!s || ft_strlen(s) == 0)
+		return (NULL);
 	if ((arr = (char**)malloc(sizeof(char*) * (ft_kol(s, c) + 1))) != NULL)
 	{
 		j = 0;
@@ -66,9 +88,9 @@ char						**ft_strsplit(char const *s, char c)
 				i++;
 			if (i != 0 && (arr[k] = (char*)malloc(i + 1)) != NULL)
 				k = ft_cpy(arr[k], &s[j], i, k);
-			while (s[i + j] == c)
-				j++;
-			j += i;
+			else if (i != 0 && ft_check(k, arr))
+				return (NULL);
+			j = ft_go(i, j, s, c);
 		}
 		arr[k] = NULL;
 	}

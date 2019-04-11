@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 10:50:02 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/09 10:57:36 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/10 19:31:22 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
+	if (!alst || !new)
+		return ;
 	new->next = *alst;
 	*alst = new;
 }

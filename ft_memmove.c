@@ -6,20 +6,19 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 19:27:48 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/08 13:41:39 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 14:19:22 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void							*ft_memmove(void *dst, const void *src,
-		size_t len)
+void					*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned	char			*d;
-	const	unsigned	char	*s;
+	unsigned	char	*d;
+	unsigned	char	*s;
 
 	d = (unsigned char*)dst;
-	s = (const unsigned char*)src;
+	s = (unsigned char*)src;
 	if (d < s)
 	{
 		while (len--)
@@ -30,6 +29,6 @@ void							*ft_memmove(void *dst, const void *src,
 		}
 	}
 	else
-		ft_memcpy(d, s, len);
+		ft_memcpy((void*)d, (const void*)s, len);
 	return ((void*)dst);
 }

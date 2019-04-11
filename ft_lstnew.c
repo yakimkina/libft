@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:29:51 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/08 15:18:09 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/10 12:37:42 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,16 @@ t_list		*ft_lstnew(void const *content, size_t content_size)
 		}
 		else
 		{
-			tmp->content = (void*)content;
-			tmp->content_size = content_size;
+			if ((tmp->content = (void*)malloc(content_size)) != NULL)
+			{
+				ft_memcpy(tmp->content, content, content_size);
+				tmp->content_size = content_size;
+			}
+			else
+			{
+				free(tmp);
+				return (NULL);
+			}
 		}
 		tmp->next = NULL;
 	}

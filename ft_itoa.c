@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 13:40:20 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/07 17:29:37 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 15:43:52 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char					*ft_itoa(int n)
 		k++;
 	if (n < 0 && k++)
 		fl = -1;
-	str = (char*)malloc(sizeof(*str) * (k + 1));
+	str = (char*)malloc(sizeof(char) * (k + 1));
 	if (str != NULL)
 	{
 		str[k] = '\0';

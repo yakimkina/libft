@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 12:53:28 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/07 12:55:22 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 14:59:47 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_strclr(char *s)
 {
-	ft_bzero(s, ft_strlen(s));
+	if (!s)
+		return ;
+	ft_bzero((void*)s, ft_strlen(s));
 }

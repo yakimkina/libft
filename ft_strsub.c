@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 15:31:20 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/07 15:50:38 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 15:42:58 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ char					*ft_strsub(char const *s, unsigned int start,
 	char				*str;
 
 	i = 0;
-	if ((str = (char*)malloc(sizeof(*str) * len)) != NULL)
+	if ((size_t)(-1) == len || !s)
+		return (NULL);
+	if ((str = (char*)malloc(sizeof(char) * (len + 1))) != NULL)
 	{
 		while (i < (unsigned int)len)
 		{
 			str[i] = s[start + i];
 			i++;
 		}
+		str[i] = '\0';
 	}
 	return (str);
 }

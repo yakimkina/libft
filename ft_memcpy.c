@@ -6,20 +6,19 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 16:29:13 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/06 14:28:21 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 16:44:32 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void							*ft_memcpy(void *restrict dst,
-		const void *restrict src, size_t n)
+void					*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned	char			*d;
-	const	unsigned	char	*s;
+	unsigned	char	*d;
+	unsigned	char	*s;
 
-	d = (unsigned char*)dst + (unsigned char)n;
-	s = (unsigned char*)src + (unsigned char)n;
+	d = (unsigned char*)dst + n;
+	s = (unsigned char*)src + n;
 	while (n--)
 	{
 		d--;
