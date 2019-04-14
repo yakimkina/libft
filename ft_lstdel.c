@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 17:04:17 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/10 19:30:54 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/12 19:09:22 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	t_list	*tmp;
 
-	if (!alst || !del)
+	if (!(*alst) || !alst || !del)
 		return ;
 	while (*alst != NULL)
 	{

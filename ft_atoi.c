@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 19:57:56 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 14:55:27 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/12 18:32:42 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int					ft_atoi(const char *str)
 	}
 	while (*str >= 48 && *str <= 57)
 	{
-		if (i > 0 && nb != nb * 10 / 10)
+		if (i > 0 && nb != (nb * 10 + (*str - 48)) / 10)
 			return (-1);
-		else if (i < 0 && nb != nb * 10 / 10)
+		else if (i < 0 && nb != (nb * 10 + (*str - 48)) / 10)
 			return (0);
 		nb = nb * 10 + (*str - 48);
 		str++;

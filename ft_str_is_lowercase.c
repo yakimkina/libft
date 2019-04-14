@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 19:27:48 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/12 19:15:57 by enikole          ###   ########.fr       */
+/*   Created: 2019/02/05 19:55:50 by enikole           #+#    #+#             */
+/*   Updated: 2019/04/13 14:55:39 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void					*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_str_is_lowercase(char *str)
 {
-	unsigned	char	*d;
-	unsigned	char	*s;
-
-	d = (unsigned char*)dst;
-	s = (unsigned char*)src;
-	if (d == s)
-		return ((void*)src);
-	if (d < s)
+	while (*str != '\0')
 	{
-		while (len--)
-		{
-			*d = *s;
-			d++;
-			s++;
-		}
+		if (*str >= 97 && *str <= 122)
+			str++;
+		else
+			return (0);
 	}
-	else
-		ft_memcpy((void*)d, (const void*)s, len);
-	return ((void*)dst);
+	return (1);
 }

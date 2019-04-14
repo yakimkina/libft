@@ -6,19 +6,19 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 13:40:20 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 15:43:52 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/11 20:48:16 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 
-char					*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	int					fl;
-	int					k;
-	int					nb;
-	char				*str;
+	int		fl;
+	int		k;
+	int		nb;
+	char	*str;
 
 	fl = 1;
 	k = 1;

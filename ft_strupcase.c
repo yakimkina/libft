@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 19:27:48 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/12 19:15:57 by enikole          ###   ########.fr       */
+/*   Created: 2019/02/05 13:24:01 by enikole           #+#    #+#             */
+/*   Updated: 2019/04/13 14:54:11 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void					*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strupcase(char *str)
 {
-	unsigned	char	*d;
-	unsigned	char	*s;
+	int i;
 
-	d = (unsigned char*)dst;
-	s = (unsigned char*)src;
-	if (d == s)
-		return ((void*)src);
-	if (d < s)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		while (len--)
-		{
-			*d = *s;
-			d++;
-			s++;
-		}
+		if (str[i] >= 97 && str[i] <= 122)
+			str[i] = str[i] - 32;
+		i++;
 	}
-	else
-		ft_memcpy((void*)d, (const void*)s, len);
-	return ((void*)dst);
+	return (str);
 }

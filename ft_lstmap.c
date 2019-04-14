@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 11:04:06 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 18:13:58 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/12 19:13:54 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list		*begin;
 
 	begin = NULL;
-	if (lst != NULL)
+	if (lst != NULL && f)
 	{
 		if (!(begin = (t_list*)malloc(sizeof(t_list))))
 			return (NULL);
@@ -41,7 +41,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		lst = lst->next;
 		tmp = begin;
 	}
-	while (lst != NULL)
+	while (lst != NULL && f)
 		if ((new = (t_list*)malloc(sizeof(t_list))) != NULL)
 		{
 			new = f(lst);

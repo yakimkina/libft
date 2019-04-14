@@ -6,12 +6,11 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 19:53:55 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 21:24:48 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/13 13:29:27 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
 static	int		ft_len(int nb, int base)
 {
@@ -23,29 +22,49 @@ static	int		ft_len(int nb, int base)
 	return (k);
 }
 
-char			*ft_itoa_base(int value, int base)
+static	int		ft_flag(int value)
 {
-	int			k;
-	int			sym;
-	char		*str;
+	if (value < 0)
+		return (-1);
+	return (1);
+}
 
-	if (base == 10)
-		return (ft_itoa(value));
-	if (base < 2 || base > 16 || value < 0)
-		return (NULL);
-	k = ft_len(value, base);
-	if ((str = (char*)malloc(sizeof(char) * (k + 1))) != NULL)
+static	char	*ft_go(char *str, int k, int value, int base)
+{
+	int			sym;
+	int			fl;
+
+	fl = ft_flag(value);
+	while (k--)
 	{
-		str[k] = '\0';
-		while (k--)
+		if (fl == -1 && k == 0 && base == 10)
 		{
-			sym = value % base;
-			if (sym >= 10 && sym <= 15)
-				str[k] = 'A' + sym % 10;
-			else
-				str[k] = sym + 48;
-			value /= base;
+			str[k] = '-';
+			break ;
 		}
+		sym = value % base * fl;
+		if (sym >= 10 && sym <= 15)
+			str[k] = 'A' + sym % 10;
+		else
+			str[k] = sym + 48;
+		value /= base;
 	}
 	return (str);
+}
+
+char			*ft_itoa_base(int value, int base)
+{
+	int			fl;
+	int			k;
+	char		*str;
+
+	fl = ft_flag(value);
+	k = ft_len(value, base);
+	if (base < 2 || base > 16)
+		return (NULL);
+	if (base == 10 && fl == -1)
+		k++;
+	if ((str = (char*)malloc(sizeof(char) * (k + 1))) != NULL)
+		str[k] = '\0';
+	return (ft_go(str, k, value, base));
 }
