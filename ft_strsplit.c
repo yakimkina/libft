@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:04:27 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 16:29:59 by enikole          ###   ########.fr       */
+/*   Updated: 2019/04/18 16:59:56 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static	size_t		ft_kol(char const *s, char c)
 {
-	size_t			i;
-	size_t			j;
+	ssize_t			i;
+	ssize_t			j;
 	size_t			count;
 
 	i = 0;
@@ -24,7 +24,7 @@ static	size_t		ft_kol(char const *s, char c)
 	count = 0;
 	while (s[i] == c)
 		i++;
-	while (s[j] == c && j)
+	while (s[j] == c && j > 0)
 		j--;
 	while (i <= j)
 	{
@@ -75,24 +75,24 @@ char				**ft_strsplit(char const *s, char c)
 	size_t			k;
 	char			**arr;
 
-	k = 0;
-	if (!s || ft_strlen(s) == 0)
+	if ((k = 0) == 0 && !s)
 		return (NULL);
-	if ((arr = (char**)malloc(sizeof(char*) * (ft_kol(s, c) + 1))) != NULL)
+	if ((arr = (char**)malloc(sizeof(char*) * (ft_kol(s, c) + 1))) == NULL)
+		return (NULL);
+	if (ft_strlen(s) == 0)
+		arr[k++] = NULL;
+	j = 0;
+	while (s[j] != '\0')
 	{
-		j = 0;
-		while (s[j] != '\0')
-		{
-			i = 0;
-			while (s[i + j] != c && s[i + j] != '\0')
-				i++;
-			if (i != 0 && (arr[k] = (char*)malloc(i + 1)) != NULL)
-				k = ft_cpy(arr[k], &s[j], i, k);
-			else if (i != 0 && ft_check(k, arr))
-				return (NULL);
-			j = ft_go(i, j, s, c);
-		}
-		arr[k] = NULL;
+		i = 0;
+		while (s[i + j] != c && s[i + j] != '\0')
+			i++;
+		if (i != 0 && (arr[k] = (char*)malloc(i + 1)) != NULL)
+			k = ft_cpy(arr[k], &s[j], i, k);
+		else if (i != 0 && ft_check(k, arr))
+			return (NULL);
+		j = ft_go(i, j, s, c);
 	}
+	arr[k] = NULL;
 	return (arr);
 }
