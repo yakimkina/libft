@@ -6,13 +6,19 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 16:53:09 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 14:53:55 by enikole          ###   ########.fr       */
+/*   Updated: 2019/07/31 18:53:29 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char		*ft_strchr(const char *s, int c)
 {
-	return ((char*)ft_memchr((const void*)s, c, ft_strlen(s) + 1));
+	while (*s != '\0')
+	{
+		if (*s == (unsigned char)c)
+			return ((char*)s);
+		s++;
+	}
+	return (NULL);
 }

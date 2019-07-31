@@ -6,12 +6,12 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:04:27 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/18 16:59:56 by enikole          ###   ########.fr       */
+/*   Updated: 2019/07/31 16:57:58 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "includes/libft.h"
 
 static	size_t		ft_kol(char const *s, char c)
 {

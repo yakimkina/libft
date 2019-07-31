@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 19:53:55 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/13 13:29:27 by enikole          ###   ########.fr       */
+/*   Updated: 2019/07/31 17:04:23 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ char			*ft_itoa_base(int value, int base)
 		k++;
 	if ((str = (char*)malloc(sizeof(char) * (k + 1))) != NULL)
 		str[k] = '\0';
+	else
+		return (NULL);
 	return (ft_go(str, k, value, base));
 }

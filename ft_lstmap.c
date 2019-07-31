@@ -6,12 +6,12 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 11:04:06 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/12 19:13:54 by enikole          ###   ########.fr       */
+/*   Updated: 2019/07/31 16:53:29 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "includes/libft.h"
 
 static	t_list	*ft_del(t_list *b)
 {

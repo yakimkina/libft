@@ -6,12 +6,12 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 12:57:14 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 15:23:09 by enikole          ###   ########.fr       */
+/*   Updated: 2019/07/31 16:57:08 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "includes/libft.h"
 
 char		*ft_strjoin(char const *s1, char const *s2)
 {

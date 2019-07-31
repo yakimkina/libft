@@ -6,11 +6,11 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 17:36:39 by enikole           #+#    #+#             */
-/*   Updated: 2019/04/11 14:52:29 by enikole          ###   ########.fr       */
+/*   Updated: 2019/07/31 16:56:20 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char		*ft_strcpy(char *dst, const char *src)
 {
