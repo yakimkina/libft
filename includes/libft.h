@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 13:28:01 by enikole           #+#    #+#             */
-/*   Updated: 2019/07/31 17:02:19 by enikole          ###   ########.fr       */
+/*   Updated: 2019/08/01 14:05:04 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 char				*ft_itoa_base(int value, int base);
+char				*ft_ib(ssize_t value, int base);
+char				*ft_uib(size_t value, int base);
 char				*ft_strupcase(char *str);
 char				*ft_strlowcase(char *str);
 int					ft_str_is_uppercase(char *str);

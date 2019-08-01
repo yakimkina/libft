@@ -6,7 +6,7 @@
 #    By: enikole <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/11 19:20:12 by enikole           #+#    #+#              #
-#    Updated: 2019/07/31 18:55:40 by enikole          ###   ########.fr        #
+#    Updated: 2019/08/01 14:11:59 by enikole          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,18 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = libft.h \
-	get_next_line.h
+HEADER = ft_printf.h \
+	get_next_line.h \
+	libft.h
 
 HEADERDIR = /includes/
 
-SRC = ft_atoi.c \
+SRC = f_beauty.c \
+	f_fraction.c \
+	f_integer.c \
+	f_second_addend.c \
+	f_summ.c \
+	ft_atoi.c \
 	ft_bzero.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
@@ -44,6 +50,7 @@ SRC = ft_atoi.c \
 	ft_memdel.c \
 	ft_memmove.c \
 	ft_memset.c \
+	ft_printf.c \
 	ft_putchar_fd.c \
 	ft_putchar.c \
 	ft_putendl_fd.c \
@@ -84,7 +91,18 @@ SRC = ft_atoi.c \
 	ft_strupcase.c \
 	ft_tolower.c \
 	ft_toupper.c \
-	get_next_line.c
+	fun_csp.c \
+	fun_di.c \
+	fun_f.c \
+	fun_flags.c \
+	fun_format.c \
+	fun_uo.c \
+	fun_x.c \
+	get_next_line.c \
+	initialization.c \
+	mod.c \
+	trash.c \
+	x_trash.c
 
 OBJ = $(SRC:%.c=%.o)
 
