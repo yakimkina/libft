@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_wordcount.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 16:29:13 by enikole           #+#    #+#             */
-/*   Updated: 2019/08/07 16:46:30 by enikole          ###   ########.fr       */
+/*   Created: 2019/08/23 23:44:40 by enikole           #+#    #+#             */
+/*   Updated: 2019/08/23 23:52:55 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "includes/libft.h"
 
-void					*ft_memcpy(void *dst, const void *src, size_t n)
+int			ft_wordcount(char *str, char c)
 {
-	unsigned	char	*d;
-	unsigned	char	*s;
+	int		words;
 
-	d = (unsigned char*)dst + n;
-	s = (unsigned char*)src + n;
-	if (!dst && !src)
-		return (NULL);
-	while (n--)
+	if (!str)
+		return (0);
+	words = 0;
+	while (*str)
 	{
-		d--;
-		s--;
-		*d = *s;
+		while (*str == c)
+			str++;
+		if (!(*str))
+			break ;
+		words++;
+		while (*str != c)
+			str++;
 	}
-	return ((void*)dst);
+	return (words);
 }

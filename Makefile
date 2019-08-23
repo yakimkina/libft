@@ -6,7 +6,7 @@
 #    By: enikole <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/11 19:20:12 by enikole           #+#    #+#              #
-#    Updated: 2019/08/01 14:11:59 by enikole          ###   ########.fr        #
+#    Updated: 2019/08/23 23:54:14 by enikole          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,10 @@ SRC = f_beauty.c \
 	f_integer.c \
 	f_second_addend.c \
 	f_summ.c \
+	ft_atoi_long.c \
 	ft_atoi.c \
 	ft_bzero.c \
+	ft_ib.c \
 	ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
@@ -91,6 +93,8 @@ SRC = f_beauty.c \
 	ft_strupcase.c \
 	ft_tolower.c \
 	ft_toupper.c \
+	ft_uib.c \
+	ft_wordcount.c \
 	fun_csp.c \
 	fun_di.c \
 	fun_f.c \

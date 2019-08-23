@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 16:29:13 by enikole           #+#    #+#             */
-/*   Updated: 2019/08/07 16:46:30 by enikole          ###   ########.fr       */
+/*   Created: 2019/04/03 19:57:56 by enikole           #+#    #+#             */
+/*   Updated: 2019/08/02 15:34:31 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "includes/libft.h"
 
-void					*ft_memcpy(void *dst, const void *src, size_t n)
+long	int			ft_atoi_long(const char *str)
 {
-	unsigned	char	*d;
-	unsigned	char	*s;
+	int				i;
+	long	int		nb;
 
-	d = (unsigned char*)dst + n;
-	s = (unsigned char*)src + n;
-	if (!dst && !src)
-		return (NULL);
-	while (n--)
+	i = 1;
+	nb = 0;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		d--;
-		s--;
-		*d = *s;
+		if (*str == '-')
+			i = -1;
+		str++;
 	}
-	return ((void*)dst);
+	while (*str >= 48 && *str <= 57)
+	{
+		if (nb > MAX_INT || nb < MIN_INT)
+			break ;
+		nb = nb * 10 + (*str - 48);
+		str++;
+	}
+	return (i * nb);
 }

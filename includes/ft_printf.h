@@ -6,7 +6,7 @@
 /*   By: enikole <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/18 16:30:32 by bnigellu          #+#    #+#             */
-/*   Updated: 2019/08/01 13:48:22 by enikole          ###   ########.fr       */
+/*   Updated: 2019/08/02 14:58:26 by enikole          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define MAX_INT 2147483647
 
 typedef struct		s_index
 {
