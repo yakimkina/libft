@@ -10,17 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-LIBRARY = libft.a
+NAME = libft.a
 
 CC = gcc
-
 CFLAGS = -Wall -Wextra -Werror
 
 HEADER = ft_printf.h \
 	get_next_line.h \
 	libft.h
-
-HEADERDIR = /includes/
+HEADER_DIR = /includes/
 
 SRC = f_beauty.c \
 	f_fraction.c \
@@ -110,15 +108,15 @@ SRC = f_beauty.c \
 
 OBJ = $(SRC:%.c=%.o)
 
-all : $(LIBRARY)
+all : $(NAME)
 
-$(LIBRARY) : $(OBJ)
-	$(CC) $(CFLAGS) -I$(HEADERDIR) -c $(SRC)
-	ar rc $(LIBRARY) $(OBJ)
-	ranlib $(LIBRARY)
+$(NAME) : $(OBJ)
+#	$(CC) $(CFLAGS) -I$(HEADER_DIR) -c $(SRC)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
-$(OBJ) : $(SRC)
-	$(CC) $(CFLAGS) -I$(HEADERDIR) -o $@ -c $<
+%(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	/bin/rm -f $(OBJ)
